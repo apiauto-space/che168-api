@@ -46,11 +46,12 @@ Keep the key on your server: the API does not accept browser requests.
 import che168_api
 
 with che168_api.Client() as client:  # reads APIAUTO_KEY
-    page = client.cars(brand="BYD", year_min=2020, limit=20)
-    for car in page["items"]:
+    cars = list(client.iter_cars(max_items=20, brand="BYD", year_min=2020))
+    for car in cars:
         print(car["id"], car["title"], car["price"]["amount"], car["price"]["currency"])
 
-    one = client.car("59997075")  # a listing number or "che168:59997075"
+    # One car by its listing number, such as "59997075", or its id, such as "che168:59997075"
+    one = client.car(cars[0]["source_id"])
     print(one["listing_url"], one["photos"][:1])
 ```
 

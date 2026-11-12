@@ -46,7 +46,7 @@ def test_constants() -> None:
     assert che168_api.MARKET == "cn"
     assert che168_api.SOURCE == "che168"
     assert che168_api.SHARED_MARKET is False
-    assert che168_api.__version__ == "0.1.0"
+    assert che168_api.__version__ == "0.1.1"
 
 
 def test_cars_presets_the_market() -> None:

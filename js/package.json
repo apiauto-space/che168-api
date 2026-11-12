@@ -1,6 +1,6 @@
 {
   "name": "che168-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Che168 API client for JavaScript and TypeScript: Chinese used-car listings from Che168 as JSON, from the apiauto.space team",
   "keywords": ["che168", "che168-api", "chinese-cars", "china", "used-cars", "car-listings", "vehicle-data", "api-client", "typescript"],
   "homepage": "https://apiauto.space/en/che168-api/",

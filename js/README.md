@@ -39,12 +39,14 @@ import { Che168Api } from "che168-api";
 
 const api = new Che168Api(); // reads APIAUTO_KEY
 
-const page = await api.cars({ brand: "BYD", year_min: 2020, limit: 20 });
-for (const car of page.items) {
+const cars = [];
+for await (const car of api.iterCars({ brand: "BYD", year_min: 2020, maxItems: 20 })) {
   console.log(car.id, car.title, car.price.amount, car.price.currency);
+  cars.push(car);
 }
 
-const one = await api.car("59997075"); // a listing number or "che168:59997075"
+// One car by its listing number, such as "59997075", or its id, such as "che168:59997075"
+const one = await api.car(cars[0].source_id);
 console.log(one.listing_url, one.photos[0]);
 ```
 
